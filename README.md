@@ -31,3 +31,28 @@
     `}</style>
 </div>
 ```
+## Non-JSX vsc ext
+```
+Name: es6-string-html
+Id: tobermory.es6-string-html
+Description: Syntax highlighting in es6 multiline strings
+Version: 2.10.0
+Publisher: Tobermory
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html
+```
+```
+Name: lit-html
+Id: bierner.lit-html
+Description: Syntax highlighting and IntelliSense for html inside of JavaScript and TypeScript tagged template strings
+Version: 1.11.1
+Publisher: Matt Bierner
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=bierner.lit-html
+```
+```
+Name: Html Embedded Javascript
+Id: shuaihu.html-embedded-javascript
+Description: Provides rich language support for HTML and Handlebar files
+Version: 1.54.5
+Publisher: shuaihu
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=shuaihu.html-embedded-javascript
+```
