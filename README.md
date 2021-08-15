@@ -1,32 +1,32 @@
 # jsx-brackets-to-js
+## option 1
 + converts `{}` to `${}`
 + only on the outer `{}`
 + leaves inner `{}` alone
+## option 2
++ converts `{}` to `${}`
++ all `{}` not as `${}` to `${}`
++ converts `[!` to `{`, `!]` to `}`
+## option 3
++ shows `${}` as value
++ converts `{}` to `${}`
 ## Examples
-```js
-let test1 = `<p onclick={() => {}}> Click me! </p>`
-test1 = jsx_to_js(test1)
-
-console.log(test1) // <p onclick=${() => {}}> Click me! </p>
-```
-```js
-let test2 = `<p prop:all={{color: "blue", count: 4}}> Click me! </p>`
-test1 = jsx_to_js(test2)
-
-console.log(test2) // <p prop:all=${{color: "blue", count: 4}}> Click me! </p>
-```
 ```jsx
 <div>
     <h1>
-        {my_name}
-        <small>
-            You are box is {size} long.
-        </small>
+        {fname} {lname}
     </h1>
     
-    <style>{css`
-        .lol {
-
+    <p> {bio} </p>
+    
+    <button onClick={() => alert(`Followed ${fname} ${lname}`)}> Follow {fname} </button>
+    
+    <style>${css`
+        h1 {
+            color: blue;
+        }
+        p {
+            background: red;
         }
     `}</style>
 </div>
