@@ -8,9 +8,9 @@
 + all `{}` not as `${}` to `${}`
 + converts `[!` to `{`, `!]` to `}`
 ## option 3
-+ shows `${}` as value
++ shows `!${}` as value
 + converts `{}` to `${}`
-## Examples
+## raw jsx
 ```jsx
 <div>
     <h1>
@@ -21,7 +21,7 @@
     
     <button onClick={() => alert(`Followed ${fname} ${lname}`)}> Follow {fname} </button>
     
-    <style>${css`
+    <style>!${css`
         h1 {
             color: blue;
         }
@@ -31,6 +31,29 @@
     `}</style>
 </div>
 ```
+## function jsx
+```js
+function make_name(first = "", last = "") {
+    let fname = first
+    let lname = last
+
+    return /*!:*/<div>
+
+        <p>{fname} {lname}</p>
+
+        <button onClick={()=>alert(`clicked ${lname}, ${fname}`)}></button>
+
+        <style>
+            !${css`
+                p {
+                    background: red;
+                }
+            `}
+        </style>
+    </div>/*:!*/
+}
+```
+
 ## Non-JSX vsc ext
 ```
 Name: es6-string-html
