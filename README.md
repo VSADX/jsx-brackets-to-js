@@ -20,7 +20,7 @@
 <${CustomElement} />
 ```
 2. Activates/Disactivates
-```
+```jsx
 <>
   <p> Hello world </p>
 </>
