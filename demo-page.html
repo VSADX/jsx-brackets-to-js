@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module">
+        // point to the url of the file you would start as normal.
+        // this file can import jsx files, these will be converted 
+        // to js files at runtime.
+        //
+        const app = "./app/index.js"
+        start(app)
+
+        async function start(entry_url = "./index.js") {
+
+            const sw = navigator.serviceWorker
+            sw.register("./jsx-compiling-sw.js")
+            const reg = await sw.ready
+            reg.active.postMessage(true)
+            sw.onmessage = () => import(entry_url)
+        }
+    </script>
+</head>
+<body></body>
+</html>
