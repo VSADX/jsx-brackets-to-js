@@ -82,3 +82,55 @@ html`
   Click me
 </button>
 ```
+  
+# Note
+1.
+```jsx
+<Display person={list[i + 1]} />
+```
+```jsx
+<${Display} person=${__(() => list[i + 1])} />
+```
+2.
+```jsx
+<Display person={list[i + 1], useMemo} />
+```
+```jsx
+<${Display} person=${__(() => list[i + 1], useMemo)} />
+```
+3.
+```jsx
+<Select onInput={value => flavor = value, useCallback} />
+```
+```jsx
+<${Display} person=${__(() => value => flavor = value, useCallback)} />
+```
+4.
+```jsx
+function Comp({name}) {
+    ___(() => name ? directive.docontinue : directive.doreturn)
+
+    return (
+      <>
+          <p> Else </p>
+          <hr />
+      </>
+    )
+}
+```
+5.
+```jsx
+function doEarlyReturn(bool) {
+    return ___(() => bool ? directive.docontinue : directive.doreturn)
+}
+function Comp2({name}) {
+    doEarlyReturn(name)
+
+    return (
+      <>
+          <p> Else </p>
+          <hr />
+      </>
+    )
+}
+```
