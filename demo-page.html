@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <script type="module">
-        // point to the url of the file you would start as normal.
-        // this file can import jsx files, these will be converted 
-        // to js files at runtime.
-        //
-        const app = "./app/index.js"
-        start(app)
 
-        async function start(entry_url = "./index.js") {
+<script>
+    // point to the url of the file you would start as normal.
+    // this file can import jsx files, these will be converted 
+    // to js files at runtime.
+    //
+    // second param is the id of the version of `jsx-compiling-sw.js`
+    // whenever the file is updated this id will need to change.
+    //
+	start("./app.jsx", "0F0F0F")
 
-            const sw = navigator.serviceWorker
-            sw.register("./jsx-compiling-sw.js")
-            const reg = await sw.ready
-            reg.active.postMessage(true)
-            sw.onmessage = () => import(entry_url)
-        }
-    </script>
-</head>
-<body></body>
-</html>
+    async function start(app_url, lib_id) {
+
+        const file = "./jsx-compiling-sw.js"
+
+        const sw = navigator.serviceWorker
+		const reg = await sw.register(`${file}?v=${lib_id}`)
+		await sw.ready
+
+		const msg = localStorage.getItem(file) == lib_id
+		localStorage.setItem(file, lib_id)
+		reg.active.postMessage(msg)
+		sw.onmessage = () => import(app_url)
+    }
+</script>
