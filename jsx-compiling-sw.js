@@ -1,4 +1,5 @@
 /// <reference lib="webworker" />
+/// use id 0F0F0F.
 
 const waiter = Promise.all[
     new Promise(r => oninstall = r),
@@ -7,8 +8,16 @@ const waiter = Promise.all[
 
 onmessage = async e => {
     await waiter
+    skipWaiting()
     clients.claim()
     e.source.postMessage(e.data)
+
+    if(e.data) return
+
+    // handle uninstall
+    await registration.unregister()
+    const all = await clients.matchAll()
+    all.forEach(c => c.navigate(c.url))
 }
 
 onfetch = e =>
