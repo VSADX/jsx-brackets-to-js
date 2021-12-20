@@ -40,7 +40,10 @@ const matcher = {
     "(<": "( /* from jsx */ html`<",
     ">)": ">` /* from jsx */ )",
     "=>({": false,
-    "=>{": false
+    "=>{": false,
+    // // uncomment to enable JSX-extended-syntax
+    // "{": "${useHtml(() => ",
+    // "}": ")}",
 }
 
 function jsx(string_component = "", should_compile = true, compiler = eval) {
