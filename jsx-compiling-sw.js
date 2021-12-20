@@ -35,12 +35,12 @@ async function respondable(request = new Request) {
 }
 
 const matcher = {
-    "{": "${",
-    "${": false,
-    "(<": "( /* from jsx */ html`<",
-    ">)": ">` /* from jsx */ )",
     "=>({": false,
     "=>{": false,
+    "(<": "( /* from jsx */ html`<",
+    ">)": ">` /* from jsx */ )",
+    "{": "${",
+    "${": false,
     // // uncomment to enable JSX-extended-syntax
     // "{": "${useHtml(() => ",
     // "}": ")}",
