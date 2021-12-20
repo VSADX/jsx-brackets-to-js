@@ -82,30 +82,28 @@ html`
   Click me
 </button>
 ```
-  
-# Note
-1.
+7. JSX common property syntax
 ```jsx
 <Display person={list[i + 1]} />
 ```
 ```jsx
 <${Display} person=${__(() => list[i + 1])} />
 ```
-2.
+8. JSX extended property syntax
 ```jsx
 <Display person={list[i + 1], useMemo} />
 ```
 ```jsx
 <${Display} person=${__(() => list[i + 1], useMemo)} />
 ```
-3.
+9. JSX extended property syntax for callbacks
 ```jsx
 <Select onInput={value => flavor = value, useCallback} />
 ```
 ```jsx
 <${Display} person=${__(() => value => flavor = value, useCallback)} />
 ```
-4.
+10. Suspense-powered directives
 ```jsx
 function Comp({name}) {
     ___(() => name ? directive.docontinue : directive.doreturn)
@@ -118,13 +116,13 @@ function Comp({name}) {
     )
 }
 ```
-5.
+11. Custom hooks + suspense-powered directives
 ```jsx
-function doEarlyReturn(bool) {
+function useSuspendEarly(bool) {
     return ___(() => bool ? directive.docontinue : directive.doreturn)
 }
 function Comp2({name}) {
-    doEarlyReturn(name)
+    useSuspendEarly(name)
 
     return (
       <>
