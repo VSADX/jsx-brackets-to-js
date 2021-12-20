@@ -1,5 +1,5 @@
 /// <reference lib="webworker" />
-/// use id 0F0F0F.
+/// use id 0FBE34.
 
 const waiter = Promise.all[
     new Promise(r => oninstall = r),
@@ -60,8 +60,8 @@ function jsx(string_component = "", should_compile = true, compiler = eval) {
         ending[0] = html
             .replace(/(\((\s*?)<|${|{|>(\s*?)\)|=>(\s*?){|=>(\s*?)\((\s*?){)/gm, 
                 match => matcher[match.replace(/\s/gm, "")] || match)
-            .replace(/\<([A-Z][a-zA-Z]+)/g,"<${$1}")
-            .replace(/\<\/([A-Z][a-zA-Z]+)/g,"</${$1}")
+            .replace(/\<([A-Z][a-zA-Z.]+)/g,"<${$1}")
+            .replace(/\<\/([A-Z][a-zA-Z.]+)/g,"</${$1}")
         
         compiled[i] = `/* from jsx */ html\`${ending[0]}\`${ending[1]}`
     }
