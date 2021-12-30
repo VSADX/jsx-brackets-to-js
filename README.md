@@ -132,3 +132,20 @@ function Comp2({name}) {
     )
 }
 ```
+  
+# Notes
+1. useStyle hook
+```jsx
+<>
+  <p ref={(
+    fontWeight.bold,
+    background.lightblue,
+    padding.bottom(12).top(4)
+  ), useStyle}> Hello </p>
+  <p ref={(
+    fontWeight("bold"),
+    background("#202020"),
+    padding(4,0,12,0)
+  ), useStyle}> World </p>
+</>
+```
